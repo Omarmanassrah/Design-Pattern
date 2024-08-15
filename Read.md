@@ -27,3 +27,7 @@ Class has only one instance and provides a global point of access to that instan
 
 In the Method ValidationProcess i use a if statment that act as a unit test that will let me sure that the applection work as I want.
 
+ In the Singleton Principle it match the case that say if i create many object they share the same instances
+ or i create only a one object 
+ I put "print(log1 is log2)" to ensure that they share the same id 
+
