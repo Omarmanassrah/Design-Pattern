@@ -13,3 +13,8 @@ modifying the original class directly.
 such as Discount for the both case (fixed ,percentage )
 
 
+Strategy Pattern :
+Is used in creating a new class called order Whyyyy?
+Becouse of the application needed to support multiple pay method  strategies,
+complicating its maintenance and scalability.
+As i can add i new strategies as i want.
