@@ -22,4 +22,6 @@ As i can add i new strategies as i want.
 The CurrencyConversion class is responsible for handling currency conversions, keeping this responsibility
 separate from payment processing.
 
+Singleton pattern implementation:
+Class has only one instance and provides a global point of access to that instance.
 
