@@ -18,3 +18,8 @@ Is used in creating a new class called order Whyyyy?
 Becouse of the application needed to support multiple pay method  strategies,
 complicating its maintenance and scalability.
 As i can add i new strategies as i want.
+
+The CurrencyConversion class is responsible for handling currency conversions, keeping this responsibility
+separate from payment processing.
+
+
