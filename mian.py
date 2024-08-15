@@ -95,15 +95,5 @@ class Singleton:
 #         self.log_file = open("singleton_log.txt", "a")
 
 
-
-
-
-
-
-
-
-
-
-
 # Extensibility the code is designed to be extended and other payment method by not adding the discount methed at each 
 # payment method insted i made a parent class and have abstact methed and make override at these functions 
