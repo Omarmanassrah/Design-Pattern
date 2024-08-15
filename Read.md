@@ -25,3 +25,5 @@ separate from payment processing.
 Singleton pattern implementation:
 Class has only one instance and provides a global point of access to that instance.
 
+This Decorator:
+ logs the function call and its result. It can be applied to any method where you want to track operations without modifying the method’s code.

@@ -41,7 +41,16 @@ class Cryptocurrency(paymentMethod):
 
 # also here i did not use a class dicount with the payment method becouse it will go wrong the Responsibility Principle
 # that it work with more than one Responsibie so divide it to anther class
-# i use mutiple principle such as Substitution Principle and open/closed 
+# i use mutiple principle such as Substitution Principle and open/closed
+def logOperation(func):
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        print (f"the result os {result}")
+        return result
+    return wrapper
+# adding Decorator 
+
+
 class Discount(ABC):
     def __init__(self,amounts):
         pass
@@ -78,7 +87,7 @@ class CurrencyConversion:
             return amount
         else :
             return amount
-
+# Only one instance from this class 
 class Singleton:
     """Singleton pattern implementation."""
      _instance=None
