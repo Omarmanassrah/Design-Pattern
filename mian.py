@@ -79,21 +79,32 @@ class CurrencyConversion:
         else :
             return amount
 
-class Singleton:
-    """Singleton pattern implementation."""
-     _instance=None
-
-    def __new__(cls, *args, **kwargs):
-        if cls._instance is None:
-            cls._instance = super(Singleton, cls).__new__(cls,*args, **kwargs)
+class MetaSingleton(type):
+    _instance={}
+    def __call__ (cls,*args,**kwargs):
+# If an instance does not exist, create one
+        if cls not in cls._instance:
+            cls._instance[cls]=super(MetaSingleton,cls).__call__(*args,**kwargs)
         return cls._instance
+
+class logger(metaclass=MetaSingleton):
     def __init__(self):
-        pass
+        self.file = open("C:\Users\omar.DESKTOP-4KRKGQT\Downloads\DesignP_skyProject\SingletonLogger.txt", "w")
+# Choose x becouse of Opens a file for writing, creates the file if it does not exist
+    def loging(self,Message):
+        self.file.write(Message)
+    def Close(self):
+        self.file.close()
 
-# class logger(Singleton):
-#     def __init__(self):
-#         self.log_file = open("singleton_log.txt", "a")
+log1=logger()
+log2=logger()
 
+log1.loging("first log")
+log2.loging("second log")
+print(log1 is log2)
+# the both are the same 
+log1.close()
+log2.close()
 
 # Extensibility the code is designed to be extended and other payment method by not adding the discount methed at each 
 # payment method insted i made a parent class and have abstact methed and make override at these functions 

@@ -25,3 +25,5 @@ separate from payment processing.
 Singleton pattern implementation:
 Class has only one instance and provides a global point of access to that instance.
 
+In the Method ValidationProcess i use a if statment that act as a unit test that will let me sure that the applection work as I want.
+
