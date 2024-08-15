@@ -8,6 +8,14 @@ class paymentMethod(ABC):
 # Here I use the Single Responsibility Principle Each class is responsibile for one payment method
 # also I use Open/Closed Principle by use abstract method and rather than
 # modifying the original class directly.
+
+
+# Strategy Method is used here by adding a new class called order 
+class order:
+    def __init__(self,amount,strategy=None):
+        self.amount = amount
+        self.strategy =strategy
+    
 class CreditCard(paymentMethod):
     def __init__(self,cardNumber):
         self.cardNumber=cardNumber
