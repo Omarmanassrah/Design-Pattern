@@ -106,5 +106,22 @@ print(log1 is log2)
 log1.close()
 log2.close()
 
+log1.loging("Order processed with Credit Card.")
+
+# Creating the object from each class and let them connect with each other 
+"""Payment Methods"""
+cre_card=CreditCard("1234567891234567")
+pay_pal=PayPal(7)
+cre_cur=Cryptocurrency("AS23SSDSD432223Bb0")
+
+order_amount=500
+order_cret_card = order(amount=order_amount, strategy=credit_card)
+order_pay_pal = order(amount=order_amount, strategy=paypal)
+order_cre_cur = order(amount=order_amount, strategy=crypto)
+
+currency_converter = CurrencyConversion(USA="USD", JOR="JOD")
+converted_amount = currency_converter.Convert(order_amount, fromC="USD")
+print(f"Converted Amount: {converted_amount}")
+
 # Extensibility the code is designed to be extended and other payment method by not adding the discount methed at each 
 # payment method insted i made a parent class and have abstact methed and make override at these functions 
