@@ -30,7 +30,7 @@ class PayPal(paymentMethod):
         self.Number = Number
     """ I use my one way to check the validity also i get help from intrnet how th check (test the Implementation)"""
     def ValidationProcess(self):
-        return 0 < self.number < 9
+        return 0 < self.Number < 9
 
 class Cryptocurrency(paymentMethod):
     def __init__(self, walletAddress):
@@ -55,7 +55,7 @@ class percentageMethod(Discount):
         self.percentage=percentage
 # Here i did not put the percentage becouse i want my code to be flexible and can be easily extended in the future.
     def FunPay(self,amount):
-        return amount-(amount*self.percentag/100)
+        return amount-(amount*self.percentage/100)
 
 class FixedAmount(Discount):
     def __init__(self,amount):
@@ -69,7 +69,7 @@ class CurrencyConversion:
         self.USA=USA 
         self.JOR=JOR
 # Should take a String value 
-    def Convert(amount,fromC):
+    def Convert(self,amount,fromC):
         if self.USA== fromC:
             amount=amount*3.5
             return amount
@@ -102,11 +102,10 @@ log2=logger()
 log1.loging("first log")
 log2.loging("second log")
 print(log1 is log2)
+log1.loging("Order processed with Credit Card.")
 # the both are the same 
 log1.close()
-log2.close()
-
-log1.loging("Order processed with Credit Card.")
+# log1 closes the file for both log1 and log2
 
 # Creating the object from each class and let them connect with each other 
 """Payment Methods"""
@@ -115,9 +114,9 @@ pay_pal=PayPal(7)
 cre_cur=Cryptocurrency("AS23SSDSD432223Bb0")
 
 order_amount=500
-order_cret_card = order(amount=order_amount, strategy=credit_card)
-order_pay_pal = order(amount=order_amount, strategy=paypal)
-order_cre_cur = order(amount=order_amount, strategy=crypto)
+order_cret_card = order(amount=order_amount, strategy=cre_card)
+order_pay_pal = order(amount=order_amount, strategy=pay_pal)
+order_cre_cur = order(amount=order_amount, strategy=cre_cur)
 
 currency_converter = CurrencyConversion(USA="USD", JOR="JOD")
 converted_amount = currency_converter.Convert(order_amount, fromC="USD")
