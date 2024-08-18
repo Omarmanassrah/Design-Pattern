@@ -122,5 +122,19 @@ currency_converter = CurrencyConversion(USA="USD", JOR="JOD")
 converted_amount = currency_converter.Convert(order_amount, fromC="USD")
 print(f"Converted Amount: {converted_amount}")
 
+if order_cret_card.strategy.ValidationProcess():
+    print ("Credit Card is valid")
+else :
+    print ("Credit Card is invalid")
+if order_pay_pal.strategy.ValidationProcess():
+    print ("PayPal is valid")
+else :
+    print ("PayPal is invalid")
+if order_cre_cur.strategy.ValidationProcess():
+    print ("Cryptocurrency is valid")
+else :
+    print ("Cryptocurrency is invalid")
+
+
 # Extensibility the code is designed to be extended and other payment method by not adding the discount methed at each 
 # payment method insted i made a parent class and have abstact methed and make override at these functions 
